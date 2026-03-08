@@ -75,31 +75,25 @@ CIVICRESOLVER
 
 ### 🏠 Home Page
 
-![Home Page](images/home.png)
+![Home Page](images/home-page.png)
 
 ---
 
-### 📝 Report Issue Page
+### 🔍 Complaints Gallery
 
-![Report Issue](images/report.png)
-
----
-
-### 📊 User Dashboard
-
-![Dashboard](images/dashboard.png)
+![Complaint Gallery](images/complaints-page.png)
 
 ---
 
-### 🔍 Complaint Status Tracking
+### 📊 Admin Dashboard
 
-![Complaint Status](images/complaint-status.png)
+![Dashboard](images/admin-panel.png)
 
 ---
 
-### 🛠️ Admin Panel
+### 🛠️ Admin Analytics
 
-![Admin Panel](images/admin-panel.png)
+![Admin Analytics](images/admin-analytics.png)
 
 ---
 
@@ -108,61 +102,73 @@ CIVICRESOLVER
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/CIVICRESOLVER.git
-
-2️⃣ Navigate to Project Directory
+git clone https://github.com/Kakdeayush/CIVICRESOLVER.git
+```
+2️⃣ Navigate to the Project Directory
+```bash
 cd CIVICRESOLVER
+```
+
 ▶️ Running the Backend (Spring Boot)
 
-Navigate to backend folder
+1.Navigate to the backend folder
 
+```bash
 cd backend
+```
 
-Run the Spring Boot application
+2.Run the Spring Boot application
 
-If using Maven:
-
+If you are using Maven, run:
+```bash
 mvn spring-boot:run
+```
 
-Or run the main class from your IDE.
+Alternatively, you can run the main Spring Boot application class directly from your IDE.
 
-Backend will start on:
-
+Once the backend server starts, it will run on:
+```bash
 http://localhost:8080
+```
+
 ▶️ Running the Frontend (React)
 
-Navigate to frontend folder
-
+1.Navigate to the frontend folder
+```bash
 cd frontend
+```
 
-Install dependencies
-
+2.Install the required dependencies
+```bash
 npm install
+```
 
-Start the React app
-
+3.Start the React development server
+```bash
 npm start
+```
 
-Frontend will start on:
-
+The frontend application will start running on:
+```bash
 http://localhost:3000
+```
 
 🎯 Future Improvements
 
-Real-time complaint status updates
+#Real-time complaint status updates
 
-Push notifications for users
+#Push notification system for users
 
-Location-based issue reporting
+#Location-based issue reporting using maps
 
-Authentication and user profiles
+#User authentication and profile management
 
-Mobile responsive UI improvements
+#Improved mobile responsive UI
 
 🤝 Contributing
 
 Contributions are welcome.
-Feel free to fork this repository and submit pull requests.
+If you would like to improve this project, feel free to fork the repository and submit a pull request.
 
 📜 License
 
@@ -174,4 +180,5 @@ Ayush Kakde
 B.Tech Computer Science
 Aspiring Java Full Stack Developer
 
-GitHub: https://github.com/Kakdeayush
+GitHub:
+https://github.com/Kakdeayush
