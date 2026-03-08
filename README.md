@@ -1,6 +1,6 @@
 # 🏙️ CIVICRESOLVER
 
-![Project Banner](images/banner.png)
+![Project Banner](images/banner2.png)
 
 ## 📌 Overview
 
