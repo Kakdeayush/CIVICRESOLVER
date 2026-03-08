@@ -1,0 +1,441 @@
+/* ===== HERO SECTION WITH BACKGROUND IMAGE ===== */
+.hero {
+  min-height: 100vh; /* full screen hero */
+  padding: 0 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertical center */
+  align-items: center;     /* horizontal center */
+
+  text-align: center;
+  position: relative;
+
+  background-image: url("/img/city12.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-top: 120px;
+}
+
+/* Hero Content Wrapper */
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  z-index: 10;
+
+  background: rgba(255,255,255,0.25);
+  padding: 24px 40px;
+  border-radius: 14px;
+}
+.hero * {
+  pointer-events: auto;
+}
+
+.hero::before,
+.hero::after {
+  pointer-events: none;
+}
+
+/* Hero Title */
+.hero-title {
+  font-size: 72px;
+  margin: 0;
+  font-weight: 800;
+}
+
+/* normal text */
+.title-normal {
+  color: #000000; /* or var(--text-primary) */
+}
+
+/* half dark + half light INSIDE letters */
+.title-gradient {
+  color: #ed008c;
+}
+
+
+
+/* DARK MODE FIX FOR HERO TEXT */
+body.dark .hero-title,
+body.dark .hero-description {
+  color: #000000; /* BLACK text only for hero */
+}
+
+
+/* Report Button */
+.report-btn {
+  background-color: #ed008c;
+  color: white;
+  border: none;
+  padding: 20px 40px; /* bigger button */
+  font-size: 22px;    /* bigger text */
+  border-radius: 12px;
+  cursor: pointer;
+  position: relative;
+  z-index: 10000;
+  margin-top: 8px;
+}
+
+
+
+
+
+
+
+/* ===== Theme Variables for Hero Boxes ===== */
+body.light {
+  --page-bg: #f8fafc;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --brand: #2563eb;
+  --box-bg: #ffffff; /* light box brighter than page */
+}
+
+body.dark {
+  --page-bg: #020617;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --brand: #3b82f6;
+  --box-bg: #1e293b; /* dark box lighter than page */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 42px;
+  }
+
+  .hero-description {
+    font-size: 18px;
+  }
+
+  .report-btn {
+    font-size: 16px;
+    padding: 14px 28px;
+  }
+
+  .info-box {
+    padding: 28px;
+  }
+
+  .mobile-first {
+    font-size: 18px;
+    margin-bottom: 24px;
+  }
+
+  .steps {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .step .icon {
+    font-size: 36px;
+  }
+
+  .step h3 {
+    font-size: 18px;
+  }
+
+  .step p {
+    font-size: 14px;
+  }
+}
+
+
+
+/* ===== Problems Section ===== */
+.problems-section {
+  padding: 70px 20px 100px; /* spacing around section */
+  background-color: var(--page-bg);
+}
+
+.problems-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Section Header */
+.problems-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-title {
+  font-size: 48px; /* bigger font like Hero */
+  margin-bottom: 16px;
+  color: var(--text-primary);
+}
+
+.section-description {
+  font-size: 20px; /* bigger */
+  line-height: 1.6;
+  color: var(--text-secondary);
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* ===== Box container ===== */
+.problems-box {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  padding: 40px;
+  border-radius: 16px;
+  background-color: var(--box-bg); /* distinct from page */
+  border: 1px solid var(--surface-border);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.1);
+}
+
+/* Problem List */
+.problem-list {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.problem-item {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.problem-number {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--brand);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.problem-item h3 {
+  font-size: 22px; /* bigger */
+  margin-bottom: 6px;
+  color: var(--text-primary);
+}
+
+.problem-item p {
+  font-size: 18px; /* bigger */
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Solution Box */
+.solution-box {
+  flex: 1;
+  background-color: var(--box-bg); /* same as Hero box for consistency */
+  border: 1px solid var(--surface-border);
+  border-radius: 12px;
+  padding: 30px;
+}
+
+.solution-box h3 {
+  font-size: 22px; /* bigger */
+  margin-bottom: 18px;
+  color: var(--text-primary);
+}
+
+.solution-box ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.solution-box li {
+  font-size: 18px; /* bigger */
+  color: var(--text-secondary);
+  position: relative;
+  padding-left: 22px;
+}
+
+.solution-box li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: var(--brand);
+}
+
+
+/* =========================
+   FEATURES SECTION
+========================= */
+.features-section {
+  padding: 30px 8% 80px; /* top | left-right | bottom */
+  text-align: center;
+}
+
+
+/* Title */
+.features-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+}
+
+/* Subtitle */
+.features-subtitle {
+  font-size: 1.1rem;
+  max-width: 650px;
+  margin: 0 auto 60px;
+  color: var(--text-secondary);
+}
+
+/* Cards Layout */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* Card */
+.feature-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 40px 30px;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Icon */
+.feature-icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 20px;
+  background: rgba(0, 150, 255, 0.15);
+  border-radius: 50%;
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Card Title */
+.feature-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+}
+
+/* Card Text */
+.feature-card p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .features-title {
+    font-size: 2.3rem;
+  }
+}
+
+/* ===== Full Width CTA Section ===== */
+.cta-section {
+  width: 100%;
+  padding: 90px 20px;
+  margin: 0;
+  background-color: #fce7f3; /* light pink */
+}
+
+/* Center content */
+.cta-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Light mode text (BLACK) */
+.cta-content h2 {
+  font-size: 42px;
+  margin-bottom: 16px;
+  color: #000000;
+}
+
+.cta-content p {
+  font-size: 18px;
+  max-width: 720px;
+  margin: 0 auto 32px;
+  line-height: 1.6;
+  color: #000000;
+}
+
+/* Button */
+.cta-btn {
+  background-color: #db2777;
+  color: #ffffff;
+  border: none;
+  padding: 14px 36px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(219, 39, 119, 0.4);
+}
+
+/* ===== Dark Mode ===== */
+body.dark .cta-section {
+  background-color: #2a0e1f;
+}
+
+body.dark .cta-content h2,
+body.dark .cta-content p {
+  color: #ffffff;
+}
+
+body.dark .cta-btn {
+  background-color: #ec4899;
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 768px) {
+  .cta-content h2 {
+    font-size: 32px;
+  }
+
+  .cta-content p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 40px 20px;
+  }
+
+  .hero-title {
+    font-size: 36px;
+  }
+
+  .hero-description {
+    font-size: 16px;
+  }
+}

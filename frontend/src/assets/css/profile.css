@@ -1,0 +1,86 @@
+.profile-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f8fafc;
+  padding: 20px;
+}
+
+body.dark .profile-wrapper {
+  background: #0f172a;
+}
+
+.profile-card {
+  width: 100%;
+  max-width: 360px;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+body.dark .profile-card {
+  background: #1e293b;
+}
+
+/* Top Section */
+.profile-header {
+  height: 120px;
+  background: #FF3E9B;
+  position: relative;
+}
+
+/* Profile Image */
+.profile-image-wrapper {
+  position: absolute;
+  bottom: -45px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.profile-image {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 4px solid white;
+  object-fit: cover;
+}
+
+body.dark .profile-image {
+  border: 4px solid #1e293b;
+}
+
+/* Content */
+.profile-content {
+  padding: 60px 25px 30px;
+}
+
+.profile-name {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 25px;
+  color: #1e293b;
+}
+
+body.dark .profile-name {
+  color: #f1f5f9;
+}
+
+/* Logout Button */
+.logout-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: #FF3E9B;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.logout-btn:hover {
+  background: #FF3E9B;
+}

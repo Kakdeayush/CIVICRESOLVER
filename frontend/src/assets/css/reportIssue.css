@@ -1,0 +1,77 @@
+.report-page {
+  min-height: 100vh;
+  padding: 20px 20px;
+  background-color: var(--page-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.report-title {
+  font-size: 48px;
+  margin-bottom: 40px;
+  color: var(--text-primary);
+}
+
+.report-form {
+  width: 100%;
+  max-width: 700px;
+  background: var(--box-bg);
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.report-form label {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.report-form input,
+.report-form select,
+.report-form textarea {
+  padding: 14px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid var(--surface-border);
+  background: var(--page-bg);
+  color: var(--text-primary);
+}
+
+.map-box {
+  height: 300px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--surface-border);
+}
+
+.map {
+  height: 100%;
+  width: 100%;
+}
+
+.submit-btn {
+  margin-top: 20px;
+  padding: 16px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: var(--brand);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .report-form {
+    padding: 24px;
+  }
+
+  .map-box {
+    height: 220px;
+  }
+}

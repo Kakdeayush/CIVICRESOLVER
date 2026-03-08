@@ -1,0 +1,204 @@
+/* =========================
+   FOOTER
+/* ===== Footer Wrapper ===== */
+.footer {
+  background-color: #020617; /* deep black/navy */
+  color: #cbd5e1;
+  padding: 70px 20px 30px;
+  margin-top: 0; /* no unwanted gap */
+}
+
+/* Container */
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Top section */
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+}
+
+/* Brand section */
+.footer-brand {
+  max-width: 380px;
+}
+
+.footer-brand h2 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 14px;
+}
+
+.footer-brand p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #94a3b8;
+  margin-bottom: 16px;
+}
+
+.footer-slogan {
+  font-size: 18px;
+  font-weight: 600;
+  color: #22c55e;
+}
+
+/* Footer columns */
+.footer-column h3 {
+  font-size: 18px;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column li {
+  font-size: 16px;
+  color: #94a3b8;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.footer-column li:hover {
+  color: #ffffff;
+}
+
+/* Contact text */
+.footer-contact p {
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: #94a3b8;
+}
+
+/* Divider */
+.footer-divider {
+  height: 1px;
+  background-color: #1e293b;
+  margin-bottom: 20px;
+}
+
+/* Bottom text */
+.footer-bottom {
+  text-align: center;
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+/* ===== Light Mode Support ===== */
+body.light .footer {
+  background-color: #0f172a; /* still dark for contrast */
+}
+
+body.light .footer-column li:hover {
+  color: #ffffff;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .footer-top {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .footer-brand {
+    max-width: 100%;
+  }
+}
+
+/* Layout */
+.footer-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 50px;
+  margin-bottom: 40px;
+}
+
+/* Brand */
+.footer-logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 15px;
+}
+
+.footer-text {
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 400px;
+}
+
+.footer-tagline {
+  margin-top: 15px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #3bb54a;
+}
+
+/* Links */
+.footer-links h3,
+.footer-contact h3 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: var(--text-primary);
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--accent-color);
+}
+
+/* Contact */
+.footer-contact p {
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+/* Bottom */
+.footer-bottom {
+  border-top: 1px solid var(--border-color);
+  padding-top: 20px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .footer {
+    text-align: center;
+  }
+
+  .footer-text {
+    margin: 0 auto;
+  }
+}

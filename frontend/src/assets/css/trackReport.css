@@ -1,0 +1,87 @@
+.track-page {
+  min-height: 100vh;
+  padding: 60px 20px;
+  background-color: var(--page-bg);
+}
+
+.track-title {
+  text-align: center;
+  font-size: 48px;
+  margin-bottom: 50px;
+  color: var(--text-primary);
+}
+
+.complaint-list {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Card */
+.complaint-card {
+  background: var(--box-bg);
+  border-radius: 16px;
+  padding: 30px;
+  border: 1px solid var(--surface-border);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+/* Header */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-header h2 {
+  font-size: 26px;
+  color: var(--text-primary);
+}
+
+/* Status badge */
+.status {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 14px;
+  color: white;
+}
+
+.status.pending {
+  background-color: #f59e0b;
+}
+
+.status.ongoing {
+  background-color: #3b82f6;
+}
+
+.status.resolved {
+  background-color: #16a34a;
+}
+
+.complaint-id {
+  margin: 12px 0;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* Body */
+.card-body p {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+}
+
+@media (max-width: 600px) {
+  .complaint-card {
+    padding: 20px;
+  }
+
+  .card-header {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+}

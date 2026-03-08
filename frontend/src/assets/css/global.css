@@ -1,0 +1,215 @@
+/* ===== MOBILE FIRST BASE ===== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+section {
+  width: 100%;
+}
+
+
+/* REMOVE DEFAULT GAPS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* LIGHT THEME */
+body.light {
+  --bg-color: #f8fafc;
+  --text-color: #0f172a;
+  --nav-bg: #ffffff;
+  --card-bg: #e5e7eb;
+  --btn-bg: #2563eb;
+  --btn-text: #ffffff;
+}
+
+/* DARK THEME */
+body.dark {
+  --bg-color: #020617;
+  --text-color: #f8fafc;
+  --nav-bg: #020617;
+  --card-bg: #0f172a;
+  --btn-bg: #38bdf8;
+  --btn-text: #020617;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: "Segoe UI", sans-serif;
+  transition: all 0.3s ease;
+}
+/* =====================================
+   🔥 FINAL MOBILE RESPONSIVE PATCH
+   (NON-DESTRUCTIVE)
+===================================== */
+
+/* GENERAL MOBILE SPACING FIX */
+@media (max-width: 768px) {
+  section {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .about-hero,
+  .about-features,
+  .about-footer,
+  .gallery-page,
+  .track-page,
+  .report-page {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+}
+
+/* NAVBAR FIX */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 16px;
+    height: 64px;
+  }
+
+  .navbar-title {
+    font-size: 1.2rem;
+  }
+
+  .navbar-links {
+    gap: 20px;
+  }
+}
+
+/* HERO FIX */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 85vh;
+    padding: 40px 16px;
+  }
+
+  .hero-title {
+    font-size: 34px;
+    line-height: 1.25;
+  }
+
+  .hero-description {
+    font-size: 16px;
+    max-width: 95%;
+  }
+}
+
+/* ABOUT PAGE FIX */
+@media (max-width: 768px) {
+  .about-hero h1 {
+    font-size: 36px;
+  }
+
+  .about-hero p {
+    font-size: 16px;
+  }
+
+  .about-card {
+    padding: 24px;
+  }
+
+  .about-card h2 {
+    font-size: 22px;
+  }
+
+  .about-card p {
+    font-size: 16px;
+  }
+}
+
+/* FEATURES + PROBLEMS STACKING */
+@media (max-width: 768px) {
+  .features-grid,
+  .problems-box,
+  .about-cards,
+  .gallery-grid {
+    grid-template-columns: 1fr !important;
+    flex-direction: column !important;
+  }
+
+  .features-section {
+    padding: 40px 16px;
+  }
+}
+
+/* GALLERY FIX */
+@media (max-width: 600px) {
+  .gallery-title {
+    font-size: 32px;
+  }
+
+  .filters {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .gallery-card img {
+    height: 180px;
+  }
+}
+
+/* REPORT FORM FIX */
+@media (max-width: 600px) {
+  .report-title {
+    font-size: 34px;
+  }
+
+  .report-form {
+    padding: 24px;
+  }
+
+  .report-form label {
+    font-size: 16px;
+  }
+
+  .report-form input,
+  .report-form textarea,
+  .report-form select {
+    font-size: 16px;
+  }
+}
+
+/* TRACK PAGE FIX */
+@media (max-width: 600px) {
+  .track-title {
+    font-size: 34px;
+  }
+
+  .card-header h2 {
+    font-size: 20px;
+  }
+
+  .card-body p {
+    font-size: 16px;
+  }
+}
+
+/* CTA SECTION FIX */
+@media (max-width: 768px) {
+  .cta-section {
+    padding: 60px 16px;
+  }
+
+  .cta-content h2 {
+    font-size: 30px;
+  }
+
+  .cta-content p {
+    font-size: 16px;
+  }
+}

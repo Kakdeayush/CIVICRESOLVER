@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: civicresolver-backend
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/civicresolver
+    username: root
+    password: 2004
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+server:
+  port: 8080
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
