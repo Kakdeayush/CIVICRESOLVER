@@ -1,34 +1,33 @@
 package com.civicresolver.backend.user;
 
 import com.civicresolver.backend.utils.BaseEntity;
-import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Entity
-@Table(name = "users")
+@Document(collection = "users")
 public class User extends BaseEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
     @NotBlank
     private String name;
 
     @Email
-    @Column(unique = true, nullable = false)
+    @Indexed(unique = true)
     private String email;
 
     @NotBlank
     private String password;
 
-    @Enumerated(EnumType.STRING)
     private Role role;
 }

@@ -60,6 +60,34 @@
   gap: 14px;
 }
 
+.language-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border: 1px solid var(--surface-border);
+  border-radius: 999px;
+  background: var(--card-bg);
+  color: var(--text-primary);
+}
+
+.language-switcher-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.language-select {
+  border: none;
+  background: transparent;
+  color: var(--text-primary);
+  font: inherit;
+  font-weight: 700;
+  min-width: 92px;
+  outline: none;
+}
+
 .theme-btn {
   padding: 8px 12px;
   border-radius: 6px;
@@ -74,7 +102,7 @@
   font-size: 1rem;
   border-radius: 6px;
   border: none;
-  background-color: #ed008c;
+  background-color: var(--btn-bg);
   color: var(--btn-text);
   font-weight: 600;
   cursor: pointer;
@@ -148,37 +176,243 @@
     font-size: 0.9rem;
   }
 }
-
-/* ===== CLEAN NAVBAR PROFILE AVATAR ===== */
-.profile-avatar {
-  width: 38px;
-  height: 38px;
-  flex: 0 0 38px;
+/* Navbar profile avatar size fix */
+/* ===== NAVBAR PROFILE AVATAR FIX ===== */
+/* ===== NAVBAR PROFILE AVATAR (FINAL SIZE) ===== */
+/* ===== NAVBAR PROFILE AVATAR (FINAL FIX) ===== */
+/* ===== NAVBAR PROFILE EMOJI FIX ===== */
+/* ===== NAVBAR PROFILE AVATAR FINAL FIX ===== */
+/* ===== NAVBAR PROFILE ICON (CLEAN & ALIGNED) ===== */
+/* ===== FORCE NAVBAR PROFILE ICON (NO CIRCLE) ===== */
+.navbar .profile-avatar {
+  background: none !important;
+  border-radius: 0 !important;
+  width: auto;
+  height: auto;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  border-radius: 50%;
-  overflow: hidden;
-
-  background: transparent;
-  cursor: pointer;
   padding: 0;
   margin: 0;
 }
 
-.profile-avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-  display: block;
+/* emoji size + alignment */
+.navbar .profile-emoji {
+  font-size: 20px;
+  line-height: 1;
 }
 
-/* remove blue focus ring */
-.profile-avatar:focus,
-.profile-avatar:active {
-  outline: none;
-  box-shadow: none;
+/* =======================================================
+   POLISHED NAVBAR OVERRIDES
+======================================================= */
+.navbar {
+  min-height: 76px;
+  padding: 0 28px;
+  background: var(--nav-bg);
+  border-bottom: 1px solid var(--nav-border);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.08);
 }
+
+.navbar-left {
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+.navbar-brand-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.navbar-title {
+  font-size: 1.15rem;
+  line-height: 1.1;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.navbar-subtitle {
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  color: var(--text-secondary);
+}
+
+.navbar-links {
+  margin: 0 24px;
+  gap: 8px;
+  padding: 0;
+}
+
+.navbar-links li {
+  list-style: none;
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-weight: 700;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background: var(--brand-soft);
+  color: var(--brand-strong);
+  transform: translateY(-1px);
+}
+
+.navbar-right {
+  gap: 12px;
+}
+
+.theme-btn,
+.menu-btn,
+.get-started-btn,
+.profile-avatar {
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
+}
+
+.theme-btn {
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--surface-border);
+  background: var(--card-bg);
+  color: var(--text-primary);
+}
+
+.theme-btn:hover {
+  transform: translateY(-1px);
+  border-color: var(--brand);
+}
+
+.get-started-btn {
+  border: none;
+  padding: 12px 20px;
+  border-radius: 999px;
+  background: var(--btn-bg);
+  color: var(--btn-text);
+}
+
+.get-started-btn:hover {
+  transform: translateY(-1px);
+}
+
+.navbar .profile-avatar {
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--surface-border);
+  border-radius: 999px !important;
+  background: linear-gradient(135deg, var(--brand), var(--accent-color)) !important;
+  color: #ffffff !important;
+}
+
+.navbar .profile-avatar:hover {
+  transform: translateY(-1px) scale(1.03);
+}
+
+.menu-btn {
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--surface-border);
+  background: var(--card-bg);
+  color: var(--text-primary);
+}
+
+.navbar-backdrop {
+  position: fixed;
+  inset: 76px 0 0 0;
+  background: rgba(2, 6, 23, 0.28);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  z-index: 900;
+}
+
+.navbar-backdrop.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (max-width: 920px) {
+  .navbar {
+    padding: 0 16px;
+  }
+
+  .navbar-links {
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 16px;
+    right: 16px;
+    margin: 0;
+    padding: 12px;
+    flex-direction: column;
+    align-items: stretch;
+    background: var(--card-bg);
+    border: 1px solid var(--surface-border);
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+    opacity: 0;
+    transform: translateY(-8px) scale(0.98);
+    max-height: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1100;
+  }
+
+  .navbar-links.active {
+    opacity: 1;
+    max-height: 420px;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+  }
+
+  .nav-link {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .menu-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .get-started-btn {
+    padding: 10px 16px;
+  }
+}
+
+@media (max-width: 620px) {
+  .navbar-subtitle {
+    display: none;
+  }
+
+  .language-switcher-label {
+    display: none;
+  }
+
+  .language-switcher {
+    padding-inline: 8px;
+  }
+
+  .language-select {
+    min-width: 72px;
+  }
+
+  .get-started-btn {
+    display: none;
+  }
+}
+

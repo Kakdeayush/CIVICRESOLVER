@@ -36,7 +36,7 @@ public class ComplaintController {
 
     // Get single complaint
     @GetMapping("/{id}")
-    public ResponseEntity<ComplaintResponseDTO> getComplaint(@PathVariable Long id) {
+    public ResponseEntity<ComplaintResponseDTO> getComplaint(@PathVariable String id) {
         return ResponseEntity.ok(complaintService.getComplaint(id));
     }
 

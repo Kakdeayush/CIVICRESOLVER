@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @Builder
 public class ComplaintResponseDTO {
 
-    private Long id;
+    private String id;
     private String title;
 
     @Schema(description = "Category of the complaint", example = "ROAD")
@@ -24,5 +24,8 @@ public class ComplaintResponseDTO {
     private String location;
     private String imageUrl;
     private String createdByName;
+    private String assignedOfficerId;
+    private String assignedOfficerName;
     private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 }

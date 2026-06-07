@@ -2,10 +2,12 @@ import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import "../assets/css/profile.css";
+import { useLanguage } from "../i18n/LanguageContext";
 
 const Profile = () => {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
+  const { t, translateRole } = useLanguage();
 
   useEffect(() => {
     if (!user) {
@@ -18,31 +20,28 @@ const Profile = () => {
   return (
     <div className="profile-wrapper">
       <div className="profile-card">
-        
-        <div className="profile-header">
-          <div className="profile-image-wrapper">
-            <img
-              src="/img/profile.png"
-              alt="Profile"
-              className="profile-image"
-            />
+        <div className="profile-avatar">👤</div>
+
+        <h2 className="profile-name">{user.name}</h2>
+        <p className="profile-role">{translateRole(user.role)}</p>
+
+        <div className="profile-info">
+          <div className="info-row">
+            <span>{t("profile.emailLabel")}</span>
+            <span>{user.email || t("common.notProvided")}</span>
           </div>
         </div>
 
-        <div className="profile-content">
-          <h2 className="profile-name">{user.name}</h2>
-
-          <button
-            className="logout-btn"
-            onClick={() => {
-              logout();
-              navigate("/");
-            }}
-          >
-            Logout
-          </button>
-        </div>
-
+        <button
+          className="logout-btn"
+          onClick={() => {
+            logout();
+            navigate("/");
+          }}
+          type="button"
+        >
+          {t("profile.logout")}
+        </button>
       </div>
     </div>
   );

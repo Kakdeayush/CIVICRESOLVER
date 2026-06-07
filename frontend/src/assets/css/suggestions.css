@@ -1,0 +1,246 @@
+.suggestion-page {
+  min-height: 100vh;
+  padding: 56px 20px 80px;
+  background: var(--page-bg);
+}
+
+.suggestion-title {
+  margin: 0;
+  text-align: center;
+  font-size: 42px;
+  color: var(--text-primary);
+}
+
+.suggestion-subtitle {
+  margin: 14px auto 36px;
+  max-width: 720px;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.suggestion-grid {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) minmax(280px, 1.3fr);
+  gap: 24px;
+}
+
+.suggestion-form-card,
+.suggestion-list-card {
+  background: var(--box-bg);
+  border: 1px solid var(--surface-border);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+}
+
+.suggestion-form-card h2,
+.suggestion-list-card h2 {
+  margin: 0 0 18px;
+  font-size: 24px;
+  color: var(--text-primary);
+}
+
+.suggestion-form-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.suggestion-form-card label {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.suggestion-form-card input,
+.suggestion-form-card select,
+.suggestion-form-card textarea {
+  width: 100%;
+  border: 1px solid var(--surface-border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 15px;
+  color: var(--text-primary);
+  background: var(--card-bg);
+}
+
+.suggestion-form-card textarea {
+  resize: vertical;
+}
+
+.suggestion-geo-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.suggestion-geo-row label {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.suggestion-geo-preview {
+  margin: 0 0 12px;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.suggestion-map-box {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--surface-border);
+  background: var(--card-bg);
+}
+
+.suggestion-map {
+  width: 100%;
+  height: 280px;
+}
+
+.suggestion-form-card button {
+  margin-top: 8px;
+  border: none;
+  border-radius: 10px;
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  padding: 12px 18px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.suggestion-form-card button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.suggestion-error {
+  margin: 0 0 12px;
+  color: #dc2626;
+  font-weight: 600;
+}
+
+.suggestion-success {
+  margin: 0 0 12px;
+  color: #15803d;
+  font-weight: 600;
+}
+
+.suggestion-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-height: 560px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.suggestion-item {
+  border: 1px solid var(--surface-border);
+  border-radius: 12px;
+  padding: 14px;
+  background: var(--card-bg);
+}
+
+.suggestion-item-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.suggestion-item h3 {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 19px;
+}
+
+.suggestion-category {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.16);
+  color: #1d4ed8;
+}
+
+.suggestion-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.suggestion-status-badge {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: #e2e8f0;
+  color: #334155;
+}
+
+.suggestion-status-badge.under-review {
+  background: #fde68a;
+  color: #92400e;
+}
+
+.suggestion-status-badge.approved {
+  background: #bbf7d0;
+  color: #166534;
+}
+
+.suggestion-status-badge.rejected {
+  background: #fecaca;
+  color: #991b1b;
+}
+
+.suggestion-status-badge.implemented {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.suggestion-item p {
+  margin: 12px 0;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.suggestion-meta {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 900px) {
+  .suggestion-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .suggestion-geo-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .suggestion-title {
+    font-size: 32px;
+  }
+
+  .suggestion-subtitle {
+    font-size: 16px;
+  }
+
+  .suggestion-form-card,
+  .suggestion-list-card {
+    padding: 18px;
+  }
+}

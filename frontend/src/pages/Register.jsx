@@ -2,9 +2,11 @@ import "../assets/css/register.css";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { registerUser } from "../api/authApi";
+import { useLanguage } from "../i18n/LanguageContext";
 
 const Register = () => {
   const navigate = useNavigate();
+  const { t } = useLanguage();
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -22,29 +24,27 @@ const Register = () => {
         role: "CITIZEN",
       });
 
-      alert("Registration successful. Please login.");
+      alert(t("auth.register.successAlert"));
       navigate("/login");
-    } catch (err) {
-      setError("Registration failed");
+    } catch {
+      setError(t("auth.register.failure"));
     }
   };
 
   return (
     <div className="auth-wrapper">
       <div className="auth-card">
-        <h1 className="auth-title">Create Account</h1>
-        <p className="auth-subtitle">
-          Join us and start making a difference
-        </p>
+        <h1 className="auth-title">{t("auth.register.title")}</h1>
+        <p className="auth-subtitle">{t("auth.register.subtitle")}</p>
 
         {error && <p style={{ color: "red" }}>{error}</p>}
 
         <div className="input-group">
-          <label>Full Name</label>
+          <label>{t("auth.register.nameLabel")}</label>
           <div className="input-box">
             <input
               type="text"
-              placeholder="Enter your name"
+              placeholder={t("auth.register.namePlaceholder")}
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
@@ -52,11 +52,11 @@ const Register = () => {
         </div>
 
         <div className="input-group">
-          <label>Email Address</label>
+          <label>{t("auth.register.emailLabel")}</label>
           <div className="input-box">
             <input
               type="email"
-              placeholder="Enter your email"
+              placeholder={t("auth.register.emailPlaceholder")}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -64,11 +64,11 @@ const Register = () => {
         </div>
 
         <div className="input-group">
-          <label>Password</label>
+          <label>{t("auth.register.passwordLabel")}</label>
           <div className="input-box">
             <input
               type="password"
-              placeholder="Create password"
+              placeholder={t("auth.register.passwordPlaceholder")}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
@@ -76,13 +76,13 @@ const Register = () => {
           </div>
         </div>
 
-        <button className="auth-btn" onClick={handleRegister}>
-          Register
+        <button className="auth-btn" onClick={handleRegister} type="button">
+          {t("auth.register.submit")}
         </button>
 
         <p className="auth-footer">
-          Already have an account?{" "}
-          <span onClick={() => navigate("/login")}>Login</span>
+          {t("auth.register.haveAccount")}{" "}
+          <span onClick={() => navigate("/login")}>{t("auth.register.login")}</span>
         </p>
       </div>
     </div>

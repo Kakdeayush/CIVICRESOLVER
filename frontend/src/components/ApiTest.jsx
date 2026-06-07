@@ -12,8 +12,8 @@ export default function ApiTest() {
       const res = await api.get("/api/complaints/public");
       setPublicData(JSON.stringify(res.data));
       setError("");
-    } catch (err) {
-      setError(err.message);
+    } catch (error) {
+      setError(error instanceof Error ? error.message : "Failed to fetch public API");
     }
   };
 
@@ -23,7 +23,7 @@ export default function ApiTest() {
       const res = await api.get("/api/test/user");
       setProtectedData(JSON.stringify(res.data));
       setError("");
-    } catch (err) {
+    } catch {
       setError("Unauthorized or backend error");
     }
   };

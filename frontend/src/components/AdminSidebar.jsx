@@ -1,13 +1,15 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { useLanguage } from "../i18n/LanguageContext";
 
 const AdminSidebar = ({ theme, toggleTheme }) => {
   const { logout } = useAuth();
   const navigate = useNavigate();
+  const { t } = useLanguage();
 
   const handleLogout = () => {
     logout();
-    alert("You are logged out");
+    alert(t("admin.sidebar.loggedOut"));
     navigate("/");
   };
 
@@ -16,10 +18,12 @@ const AdminSidebar = ({ theme, toggleTheme }) => {
       <h2 className="admin-logo">CivicResolver</h2>
 
       <nav>
-        <NavLink to="/admin" end>📊 Dashboard</NavLink>
-        <NavLink to="/admin/complaints">📝 Complaints</NavLink>
-        <NavLink to="/admin/analytics">📈 Analytics</NavLink>
-        <NavLink to="/admin/settings">⚙️ Settings</NavLink>
+        <NavLink to="/admin" end>📊 {t("admin.sidebar.dashboard")}</NavLink>
+        <NavLink to="/admin/complaints">📝 {t("admin.sidebar.complaints")}</NavLink>
+        <NavLink to="/admin/suggestions">💡 {t("admin.sidebar.suggestions")}</NavLink>
+        <NavLink to="/admin/analytics">📈 {t("admin.sidebar.analytics")}</NavLink>
+        <NavLink to="/admin/reports">📋 Reports</NavLink>
+        <NavLink to="/admin/settings">⚙️ {t("admin.sidebar.settings")}</NavLink>
       </nav>
 
       <div className="sidebar-bottom">
@@ -29,7 +33,7 @@ const AdminSidebar = ({ theme, toggleTheme }) => {
 
 
         <button className="logout-btn" onClick={handleLogout}>
-          🚪 Logout
+          🚪 {t("admin.sidebar.logout")}
         </button>
       </div>
     </aside>

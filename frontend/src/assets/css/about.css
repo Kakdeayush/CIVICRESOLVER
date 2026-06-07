@@ -3,23 +3,23 @@
 /* ======================================================== */
 * {
   transition: background 0.35s ease,
-              color 0.35s ease,
-              border-color 0.35s ease,
-              box-shadow 0.35s ease,
-              transform 0.35s ease;
+    color 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    transform 0.35s ease;
 }
 
 /* ======================================================== */
 /*   THEME VARIABLES (Light + Dark) */
 /* ======================================================== */
 :root {
-  --bg-main: linear-gradient(to bottom, #f8fafc, #eef2ff);
+  --bg-main: linear-gradient(to bottom, #dda949, #ffffff);
   --bg-card: rgba(255, 255, 255, 0.65);
   --text-main: #1e293b;
   --text-soft: #475569;
   --border: #e2e8f0;
-  --shadow-soft: 0 15px 40px rgba(0,0,0,0.08);
-  --shadow-strong: 0 25px 60px rgba(0,0,0,0.12);
+  --shadow-soft: 0 15px 40px rgba(0, 0, 0, 0.08);
+  --shadow-strong: 0 25px 60px rgba(0, 0, 0, 0.12);
   --feature-icon-bg: linear-gradient(135deg, #2563eb33, #ec489933);
 }
 
@@ -29,8 +29,8 @@ body.dark {
   --text-main: #e2e8f0;
   --text-soft: #94a3b8;
   --border: #1e293b;
-  --shadow-soft: 0 15px 40px rgba(0,0,0,0.6);
-  --shadow-strong: 0 25px 60px rgba(0,0,0,0.6);
+  --shadow-soft: 0 15px 40px rgba(0, 0, 0, 0.6);
+  --shadow-strong: 0 25px 60px rgba(0, 0, 0, 0.6);
 }
 
 /* ======================================================== */
@@ -71,11 +71,11 @@ body.dark {
 }
 
 .brand-text {
-  background: #ed008c;
+  /* background: linear-gradient(90deg, #2563eb, #f6f3f4, #b325eb, #94a3b8); */
   background-size: 200% auto;
   animation: gradientMove 5s linear infinite;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-background-clips: text;
+  -webkit-text-fill-color: transparent 100%;
 }
 
 @keyframes gradientMove {
@@ -204,7 +204,7 @@ body.dark {
   background: var(--feature-icon-bg);
   box-shadow:
     0 8px 20px rgba(37, 99, 235, 0.2),
-    inset 0 0 10px rgba(255,255,255,0.4);
+    inset 0 0 10px rgba(255, 255, 255, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -242,9 +242,9 @@ body.dark {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.2), transparent);
+  background: linear-gradient(360deg, transparent, rgba(255, 255, 255, 0.08), transparent);
   transform: translateX(-100%);
-  animation: shine 5s infinite;
+  animation: shine 3s infinite;
 }
 
 @keyframes shine {

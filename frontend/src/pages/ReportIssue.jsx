@@ -5,8 +5,9 @@ import "../assets/css/reportIssue.css";
 import { createComplaint } from "../api/complaintApi";
 import { useNavigate } from "react-router-dom";
 import L from "leaflet";
+import { COMPLAINT_CATEGORY_CODES } from "../i18n/constants";
+import { useLanguage } from "../i18n/LanguageContext";
 
-// Fix leaflet marker icons
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
   iconRetinaUrl:
@@ -19,7 +20,7 @@ L.Icon.Default.mergeOptions({
 
 const DEFAULT_LOCATION = { lat: 19.9526, lng: 79.2952 };
 
-function LocationPicker({ setLocation, setLocationName }) {
+function LocationPicker({ setLocation, setLocationName, fallbackLocationName }) {
   useMapEvents({
     async click(e) {
       const { lat, lng } = e.latlng;
@@ -30,18 +31,19 @@ function LocationPicker({ setLocation, setLocationName }) {
           `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`
         );
         const data = await res.json();
-        setLocationName(data.display_name || "Bhadravati, Chandrapur");
+        setLocationName(data.display_name || fallbackLocationName);
       } catch {
-        setLocationName("Bhadravati, Chandrapur");
+        setLocationName(fallbackLocationName);
       }
     },
   });
+
   return null;
 }
 
 const ReportIssue = () => {
   const [title, setTitle] = useState("");
-  const [category, setCategory] = useState("Road");
+  const [category, setCategory] = useState("ROAD");
   const [description, setDescription] = useState("");
   const [location, setLocation] = useState(DEFAULT_LOCATION);
   const [locationName, setLocationName] = useState("");
@@ -49,13 +51,14 @@ const ReportIssue = () => {
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
+  const { t, translateComplaintCategory } = useLanguage();
 
   const uploadImageToCloudinary = async () => {
     if (!imageFile) return null;
 
     const formData = new FormData();
     formData.append("file", imageFile);
-    formData.append("upload_preset", "civicresolver"); // YOUR PRESET
+    formData.append("upload_preset", "civicresolver");
     formData.append("folder", "complaints");
 
     const res = await fetch(
@@ -75,7 +78,7 @@ const ReportIssue = () => {
     setError("");
 
     if (!title || !category || !description || !locationName) {
-      setError("Please fill all fields and select location");
+      setError(t("report.errorFill"));
       return;
     }
 
@@ -84,50 +87,50 @@ const ReportIssue = () => {
 
       await createComplaint({
         title,
-        category: category.toUpperCase(),
+        category,
         description,
         location: locationName,
         imageUrl,
       });
 
-      alert("Complaint submitted successfully ✅");
+      alert(t("report.success"));
       navigate("/track-report");
     } catch {
-      setError("Failed to submit complaint");
+      setError(t("report.errorSubmit"));
     }
   };
 
   return (
     <div className="report-page">
-      <h1 className="report-title">Report a Civic Issue</h1>
+      <h1 className="report-title">{t("report.title")}</h1>
 
       {error && <p style={{ color: "red" }}>{error}</p>}
 
       <form className="report-form" onSubmit={handleSubmit}>
-        <label>Issue Title</label>
+        <label>{t("report.issueTitle")}</label>
         <input
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
 
-        <label>Category</label>
+        <label>{t("report.category")}</label>
         <select value={category} onChange={(e) => setCategory(e.target.value)}>
-          <option>Road</option>
-          <option>Garbage</option>
-          <option>Water</option>
-          <option>Electricity</option>
-          <option>Other</option>
+          {COMPLAINT_CATEGORY_CODES.map((code) => (
+            <option key={code} value={code}>
+              {translateComplaintCategory(code)}
+            </option>
+          ))}
         </select>
 
-        <label>Description</label>
+        <label>{t("report.description")}</label>
         <textarea
           rows="4"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
 
-        <label>Select Location</label>
+        <label>{t("report.selectLocation")}</label>
         {locationName && <p>📍 {locationName}</p>}
 
         <div className="map-box">
@@ -137,15 +140,16 @@ const ReportIssue = () => {
             <LocationPicker
               setLocation={setLocation}
               setLocationName={setLocationName}
+              fallbackLocationName={t("report.locationFallback")}
             />
           </MapContainer>
         </div>
 
-        <label>Upload Photo</label>
+        <label>{t("report.uploadPhoto")}</label>
         <input type="file" onChange={(e) => setImageFile(e.target.files[0])} />
 
         <button type="submit" className="submit-btn">
-          Submit Issue
+          {t("report.submit")}
         </button>
       </form>
     </div>

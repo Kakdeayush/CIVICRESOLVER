@@ -17,6 +17,7 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 @Configuration
 @EnableMethodSecurity
@@ -48,11 +49,13 @@ public class SecurityConfig {
                                 "/h2-console/**"
                         ).permitAll()
                         .requestMatchers("/api/complaints/public").permitAll()
+                        .requestMatchers("/api/suggestions/public").permitAll()
                         // Authenticated endpoints
                         .requestMatchers("/api/test/**").authenticated()
                         // Role-based endpoints
                         .requestMatchers("/api/admin/**").hasRole("ADMIN")
                         .requestMatchers("/api/complaints/**").hasAnyRole("CITIZEN", "ADMIN")
+                        .requestMatchers("/api/suggestions/**").hasAnyRole("CITIZEN", "ADMIN")
                         .anyRequest().authenticated()
                 )
                 // H2 console fix: allow frames
@@ -85,7 +88,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("http://localhost:5173")); // frontend
+        configuration.setAllowedOriginPatterns(buildAllowedOriginPatterns());
         configuration.setAllowedMethods(List.of("GET","POST","PUT","DELETE","OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true);
@@ -93,5 +96,35 @@ public class SecurityConfig {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;
+    }
+
+    private List<String> buildAllowedOriginPatterns() {
+        List<String> frontendHosts = List.of(
+                "localhost",
+                "127.0.0.1",
+                "10.*.*.*",
+                "192.168.*.*",
+                "172.16.*.*",
+                "172.17.*.*",
+                "172.18.*.*",
+                "172.19.*.*",
+                "172.20.*.*",
+                "172.21.*.*",
+                "172.22.*.*",
+                "172.23.*.*",
+                "172.24.*.*",
+                "172.25.*.*",
+                "172.26.*.*",
+                "172.27.*.*",
+                "172.28.*.*",
+                "172.29.*.*",
+                "172.30.*.*",
+                "172.31.*.*"
+        );
+
+        return frontendHosts.stream()
+                .flatMap(host -> Stream.of("http", "https")
+                        .map(scheme -> "%s://%s:5173".formatted(scheme, host)))
+                .toList();
     }
 }

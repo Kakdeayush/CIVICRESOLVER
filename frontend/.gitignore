@@ -11,6 +11,8 @@ node_modules
 dist
 dist-ssr
 *.local
+certs/*.cer
+certs/*.pfx
 
 # Editor directories and files
 .vscode/*

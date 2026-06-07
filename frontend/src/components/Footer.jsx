@@ -1,43 +1,43 @@
+import { Link } from "react-router-dom";
 import "../assets/css/footer.css";
+import { useLanguage } from "../i18n/LanguageContext";
 
 const Footer = () => {
+  const { t } = useLanguage();
+
   return (
     <footer className="footer">
       <div className="footer-container">
-        {/* LEFT */}
         <div className="footer-brand">
           <h2 className="footer-logo">CivicResolver</h2>
-          <p className="footer-text">
-            Empowering citizens to report civic issues and track their
-            resolution through transparent and efficient governance.
-          </p>
-          <p className="footer-tagline">
-            आवाज़ उठाओ, बदलाव लाओ
-          </p>
+          <p className="footer-text">{t("footer.description")}</p>
+          <div className="footer-pills">
+            <span>{t("footer.pillFast")}</span>
+            <span>{t("footer.pillTrack")}</span>
+            <span>{t("footer.pillImprove")}</span>
+          </div>
+          <p className="footer-tagline">{t("footer.tagline")}</p>
         </div>
 
-        {/* MIDDLE */}
         <div className="footer-links">
-          <h3>Quick Links</h3>
+          <h3>{t("footer.quickLinks")}</h3>
           <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/track-report">Track Report</a></li>
-            <li><a href="/gallery">Gallery</a></li>
-            <li><a href="/about">About Us</a></li>
+            <li><Link to="/">{t("nav.home")}</Link></li>
+            <li><Link to="/track-report">{t("nav.trackReport")}</Link></li>
+            <li><Link to="/gallery">{t("nav.gallery")}</Link></li>
+            <li><Link to="/about">{t("nav.about")}</Link></li>
           </ul>
         </div>
 
-        {/* RIGHT */}
         <div className="footer-contact">
-          <h3>Contact</h3>
+          <h3>{t("footer.contact")}</h3>
           <p>📧 support@civicresolver.com</p>
-          <p>❤️ Made for India</p>
+          <p>❤️ CivicResolver</p>
         </div>
       </div>
 
-      {/* BOTTOM */}
       <div className="footer-bottom">
-        © 2025 CivicResolver. All rights reserved. Building better cities, one report at a time.
+        {t("footer.rights")}
       </div>
     </footer>
   );

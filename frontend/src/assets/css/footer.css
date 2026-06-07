@@ -202,3 +202,136 @@ body.light .footer-column li:hover {
     margin: 0 auto;
   }
 }
+
+/* =======================================================
+   REFINED FOOTER LAYER
+======================================================= */
+.footer {
+  position: relative;
+  overflow: hidden;
+  padding: 72px 20px 32px;
+  margin-top: 0;
+  background: linear-gradient(180deg, rgba(2, 6, 23, 0.98), rgba(15, 23, 42, 0.98));
+  color: #cbd5e1;
+  border-top: 1px solid rgba(148, 163, 184, 0.16);
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(37, 99, 235, 0.22), transparent 30%),
+    radial-gradient(circle at 80% 0%, rgba(236, 72, 153, 0.16), transparent 28%);
+  pointer-events: none;
+}
+
+.footer-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto 32px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+}
+
+.footer-logo {
+  margin: 0 0 12px;
+  font-size: 1.9rem;
+  color: #ffffff;
+}
+
+.footer-text {
+  max-width: 420px;
+  line-height: 1.7;
+  color: #cbd5e1;
+}
+
+.footer-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0 10px;
+}
+
+.footer-pills span {
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  font-size: 0.9rem;
+  color: #ffffff;
+}
+
+.footer-tagline {
+  margin-top: 15px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #86efac;
+}
+
+.footer-links h3,
+.footer-contact h3 {
+  font-size: 1.1rem;
+  margin-bottom: 14px;
+  color: #ffffff;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #cbd5e1;
+  display: inline-flex;
+  width: fit-content;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+  transform: translateX(3px);
+}
+
+.footer-contact p {
+  margin-bottom: 10px;
+  color: #cbd5e1;
+}
+
+.footer-bottom {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 20px;
+  border-top: 1px solid rgba(148, 163, 184, 0.18);
+  text-align: center;
+  font-size: 0.92rem;
+  color: #94a3b8;
+}
+
+body.light .footer {
+  background: linear-gradient(180deg, #0f172a, #020617);
+}
+
+@media (max-width: 900px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .footer-text {
+    margin: 0 auto;
+  }
+
+  .footer-pills {
+    justify-content: center;
+  }
+}

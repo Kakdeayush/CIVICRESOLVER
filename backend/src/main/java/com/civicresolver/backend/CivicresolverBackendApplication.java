@@ -1,13 +1,14 @@
 package com.civicresolver.backend;
 
-import com.civicresolver.backend.user.Role;
-import com.civicresolver.backend.user.User;
-import com.civicresolver.backend.user.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+import com.civicresolver.backend.user.Role;
+import com.civicresolver.backend.user.User;
+import com.civicresolver.backend.user.UserRepository;
 
 @SpringBootApplication
 public class CivicresolverBackendApplication {
@@ -24,11 +25,11 @@ public class CivicresolverBackendApplication {
                 User admin = User.builder()
                         .name("Admin")
                         .email("admin@gmail.com")
-                        .password(passwordEncoder.encode("admin123")) // automatically encoded
+                        .password(passwordEncoder.encode("admin1234")) // automatically encoded
                         .role(Role.ADMIN)
                         .build();
                 userRepository.save(admin);
-                System.out.println("✅ Admin created: admin@gmail.com / admin123");
+                System.out.println("✅ Admin created: admin@gmail.com / admin1234");
             }
         };
     }

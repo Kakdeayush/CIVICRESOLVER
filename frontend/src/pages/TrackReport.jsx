@@ -1,52 +1,67 @@
 import "../assets/css/trackReport.css";
 import { useEffect, useState } from "react";
-import { getMyComplaints } from "../api/complaintApi"; // ✅ fixed import
+import { getMyComplaints } from "../api/complaintApi";
+import { useLanguage } from "../i18n/LanguageContext";
 
 const TrackReport = () => {
   const [complaints, setComplaints] = useState([]);
   const [error, setError] = useState("");
+  const { t, translateComplaintCategory, translateComplaintStatus, formatDateTime } =
+    useLanguage();
 
   useEffect(() => {
     const fetchComplaints = async () => {
       setError("");
       try {
-        const res = await getMyComplaints(); // ✅ use correct API
+        const res = await getMyComplaints();
         setComplaints(res.data);
-      } catch (err) {
-        setError("Failed to fetch complaints");
+      } catch {
+        setError(t("track.error"));
       }
     };
 
     fetchComplaints();
-  }, []);
+  }, [t]);
 
   return (
     <div className="track-page">
-      <h1 className="track-title">Track Your Complaints</h1>
+      <h1 className="track-title">{t("track.title")}</h1>
 
       {error && <p style={{ color: "red" }}>{error}</p>}
 
       <div className="complaint-list">
-        {complaints.length === 0 && !error && (
-          <p>No complaints found. Submit one from the Report Issue page.</p>
-        )}
+        {complaints.length === 0 && !error && <p>{t("track.empty")}</p>}
 
         {complaints.map((item) => (
           <div className="complaint-card" key={item.id}>
             <div className="card-header">
               <h2>{item.title}</h2>
-              <span className={`status ${item.status.toLowerCase()}`}>
-                {item.status}
+              <span className={`status ${String(item.status).toLowerCase()}`}>
+                {translateComplaintStatus(item.status)}
               </span>
             </div>
 
-            <p className="complaint-id">Complaint ID: {item.id}</p>
+            <p className="complaint-id">
+              {t("track.complaintId")}: {item.id}
+            </p>
 
             <div className="card-body">
-              <p><strong>Category:</strong> {item.category}</p>
-              <p><strong>Description:</strong> {item.description}</p>
-              <p><strong>Location:</strong> {item.location}</p>
-              <p><strong>Date:</strong> {new Date(item.createdAt).toLocaleDateString()}</p>
+              <p>
+                <strong>{t("track.category")}:</strong>{" "}
+                {translateComplaintCategory(item.category)}
+              </p>
+              <p>
+                <strong>{t("track.description")}:</strong> {item.description}
+              </p>
+              <p>
+                <strong>{t("track.location")}:</strong> {item.location}
+              </p>
+              <p>
+                <strong>{t("track.date")}:</strong>{" "}
+                {formatDateTime(item.createdAt, {
+                  dateStyle: "medium",
+                })}
+              </p>
             </div>
           </div>
         ))}
